@@ -1,0 +1,101 @@
+2022-07-18 15:15:41 [http-nio-1443-exec-8] INFO  DefaultEsbClient:54 - brianSisCheckRio request:
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Body>
+    <brianSisCheckRioRequest xmlns="http://brian.mobilkom.at/wsdl/">
+      <checkRio>
+        <msisdnPhone>
+          <cc>43</cc>
+          <ndc>664</ndc>
+          <sn>6126582</sn>
+        </msisdnPhone>
+        <newEid>89049032005008883000032212914016</newEid>
+      </checkRio>
+    </brianSisCheckRioRequest>
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------
+2022-07-18 15:15:41 [http-nio-1443-exec-8] INFO  DefaultEsbClient:55 - brianSisCheckRio response:
+ <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  
+  <soapenv:Body>
+    
+    <brianSisCheckRioResponse xmlns="http://brian.mobilkom.at/wsdl/">
+      
+      <checkRioResult>
+        
+        <msisdnPhone>
+          
+          <cc>43</cc>
+          
+          <ndc>664</ndc>
+          
+          <sn>6126582</sn>
+        
+        </msisdnPhone>
+        
+        <subCustomerType>E_CustTypeBus</subCustomerType>
+        
+        <rioAllowed>false</rioAllowed>
+        
+        <r>
+          
+          <rioOffer xsi:nil="true"/>
+          
+          <rioReason>
+            
+            <rioReasonType>0</rioReasonType>
+            
+            <rioReasonText/>
+            
+            <rioNextStepText/>
+          
+          </rioReason>
+        
+        </r>
+        
+        <rioWssScenario>E_RiosConfirmPending</rioWssScenario>
+        
+        <cntXc>1</cntXc>
+        
+        <xc>
+          
+          <xcAction>E_XcQuery</xcAction>
+          
+          <xcType>E_XcRio</xcType>
+          
+          <xcIndex>E_Xc1</xcIndex>
+          
+          <simKind>E_SimKindESIM</simKind>
+          
+          <sim>8943015621074060095</sim>
+          
+          <xcMsisdn>
+            
+            <cc>43</cc>
+            
+            <ndc>664</ndc>
+            
+            <sn>742136983</sn>
+          
+          </xcMsisdn>
+          
+          <xcSoc>XCIV1_15</xcSoc>
+          
+          <cntXcParam>1</cntXcParam>
+          
+          <xcParam>
+            
+            <xcParamName>XCRIO</xcParamName>
+            
+            <xcParamValue>89049032005008883000032212914016</xcParamValue>
+          
+          </xcParam>
+        
+        </xc>
+      
+      </checkRioResult>
+    
+    </brianSisCheckRioResponse>
+  
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,12 @@
+site_name: Luctus Wiki
+site_url: https://luctus.at/wiki
+repo_url: https://github.com/OverlordAkise
+
+theme:
+    name: windmill
+    logo: img/urlicon.png
+    favicon: img/urlicon.png
+    highlightjs: true
+    collapse_navigation: true
+    hljs_languages:
+        - lua

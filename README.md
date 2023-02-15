@@ -3,13 +3,14 @@
 A repository to manage my websites.
 
 Please look out for license files!  
-I only wrote the content of my 'luctus' website and not the design itself. The design is made by "html5up.net | @ajlkn" with a "CC BY 3.0" license.  
+I only wrote the content of my 'luctus.at' and 'luctus.at/book' website and not the design itself. The design is made by "html5up.net | @ajlkn" with a "CC BY 3.0" license.  
 Everything else, if not explicitly specified, is licensed as "GNU GPLv3".
 
 Current websites:  
  - [https://shira.at](https://shira.at)  
  - [https://luctus.at](https://luctus.at)  
  - [https://luctus.at/book](https://luctus.at/book)
+ - [https://luctus.at/wiki](https://luctus.at/wiki)
 
 ## Why upload your website?
 

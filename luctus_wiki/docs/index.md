@@ -6,7 +6,7 @@ No matter if lua, server-hosting or database knowledge - everything is documente
 
 This wiki mainly covers topics, knowledge and guides that can't be found on the official gmod wiki.
 
-## Addons & GitHub
+## Addons and GitHub
 
 If you want to download my addons or make your own with inspiration from mine visit my github at [https://github.com/OverlordAkise](https://github.com/OverlordAkise)
 

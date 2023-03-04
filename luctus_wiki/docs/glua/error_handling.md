@@ -69,7 +69,7 @@ A bad example with a database query:
 ```lua
 --[[...]]--
     local players = sql.Query("SELECT * FROM myplayers")
-    if players == nil then
+    if players == false then
         print("ERROR DURING SQL SELECT IN MYADDON!")
         print(sql.LastError())
         return
@@ -84,7 +84,7 @@ To make this example better use the `error()` function, which not only can displ
 ```lua
 --[[...]]--
     local players = sql.Query("SELECT * FROM myplayers")
-    if players == nil then
+    if players == false then
         error(sql.LastError())
     end
 --[[...]]--
@@ -95,10 +95,14 @@ This makes the code more simple and also make the errors more visible and better
 If you are a fan of one-liners you could also use the `assert()` function like this:
 
 ```lua
-assert(players ~= false, sql.LastError())
+assert(players, sql.LastError())
 ```
 
-I personally don't use the `assert()` function much because in my opinion it is less readable for newcomers.
+The problem with the above code: `assert` not only has false but also has nil as an error saved. This means that, if you either don't have any data (nil) or have an SQL error (false), it will throw an exception both times.  
+This could lead to confusion because a nil value doesn't have to be an error in this case.  
+(If you have 0 rows in your table its OK and doesnt need an error, but if you cant connect to the database then throwing an error is a good idea)
+
+I personally don't use the `assert()` function much because in my opinion it is less readable for newcomers and also not ideal for checking `sql.Query` errors.
 
 
 ## return on unreachable code

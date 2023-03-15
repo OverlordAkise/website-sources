@@ -1,0 +1,206 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>darkrp | luctus.at</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <meta name="description" content="garrys mod darkrp addons, free for everyone. Created by overlordakise">
+		<meta property="og:image" content="https://luctus.at/favicon.ico">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            .spotlights section .image {
+                width: auto;
+                padding:10px;
+            }
+            .spotlights section img {
+                max-width: 500px;
+                width: 100%;
+            }
+            .spotlights section video {
+                max-width:500px;
+                width: 100%;
+            }
+            @media screen and (min-width: 980px) {
+                .spotlights section img {
+                    min-width:500px;
+                }
+                .spotlights section video {
+                    min-width:500px;
+                }
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Luctus</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="darkrp.html" class="active">darkrp</a></li>
+						<li><a href="scprp.html">scprp</a></li>
+						<!--<li><a href="devhud.html">devhud</a></li>-->
+						<li><a href="/book">book</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="addons" class="wrapper style2 spotlights">
+                        <div class="inner">
+							<h1 class="major">DarkRP Addons</h1>
+                            <section>
+                                All these addons have been written by me, OverlordAkise.<br>
+                                You can download them either via the button or get the newest version from my github at:<br>
+                                <a href="https://github.com/OverlordAkise/darkrp-addons" target="_blank">https://github.com/OverlordAkise/darkrp-addons</a>
+                            </section>
+                        </div>
+                        <!--
+						<section>
+							<a href="#" class="image"><img src="images/lucid_char.png" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Sed ipsum dolor</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        <section>
+							<a href="#" class="image"><img src="images/luctus_config.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Feugiat consequat</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        -->
+                    </section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; luctus.at // All rights reserved.</li><li>Made by OverlordAkise</li><li>Design: <a href="http://html5up.net">HTML5 UP - Hyperspace</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            <script>
+                function AddSection(name,desc,downLink,imgLink,isLeft){
+                    let mainContent = document.getElementById("addons");
+                    let section = document.createElement("section");
+                    let image = document.createElement("a");
+                    image.classList.add("image");
+                    image.href = imgLink;
+                    
+                    let content = document.createElement("div");
+                    content.classList.add("content");
+                    let inner = document.createElement("div");
+                    inner.classList.add("inner");
+                    let h2 = document.createElement("h2");
+                    h2.innerHTML = name;
+                    let p = document.createElement("p");
+                    p.innerHTML = desc;
+                    let ul = document.createElement("ul");
+                    ul.classList.add("actions");
+                    let li = document.createElement("li");
+                    
+                    let a = document.createElement("a");
+                    a.href = downLink;
+                    a.classList.add("button");
+                    a.innerText = "Download "+name.split(" ")[1];
+                    
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    inner.appendChild(h2);
+                    inner.appendChild(p);
+                    inner.appendChild(ul);
+                    content.appendChild(inner);
+                    
+                    let pic = null
+                    if (imgLink.includes(".mp4")) {
+                        pic = document.createElement("video");
+                        let source = document.createElement("source");
+                        source.src = imgLink;
+                        source.type = "video/mp4";
+                        pic.appendChild(source);
+                        pic.toggleAttribute("autoplay");
+                        pic.toggleAttribute("loop");
+                        pic.toggleAttribute("muted");
+                        pic.toggleAttribute("playsinline");
+                        pic.muted = true;
+                        pic.loop = true;
+                    }else{
+                        pic = document.createElement("img");
+                        pic.src = imgLink;
+                        pic.alt = "A screenshot of "+name;
+                    }
+                    
+                    image.appendChild(pic);
+                    
+                    section.appendChild(image);
+                    section.appendChild(content);
+                    
+                    mainContent.appendChild(document.createElement("hr"));
+                    mainContent.appendChild(section);
+                    
+                }
+                let addons = [
+                    ["Luctus Serverstatus","An optimized Scoreboard that features ULX support via rightclick","files/luctus_serverstatus.zip","images/luctus_serverstatus.png"],
+                    ["Luctus Scoreboard","An optimized Scoreboard that features ULX support via rightclick","files/luctus_scoreboard.zip","images/luctus_scoreboard.png"],
+                    ["Luctus Logs","An easy and efficient logging system. Features filtering and gmodadminsuite logging modules support","files/luctus_logs.zip","images/luctus_logs.png"],
+                    ["Luctus HUD","A simple, fully functional HUD with ammo display and agenda support","files/luctus_hud.zip","images/luctus_hud.png"],
+                    ["Lucid Propblacklist","A handpicked 1000+ props blacklist. Contains HL2, Gmod and CSS props that users could use to troll","files/lucid_propblacklist.zip","images/lucid_propblacklist.png"],
+                    ["Luctus Jobranks","A fast jobranksystem that simply works and is easy to configure","files/luctus_jobranks.zip","images/luctus_jobranks.png"],
+                    ["Lucid Chat","A simple chatbox with previous-message features and tab-to-advert shortcut","files/lucid_chat.zip","images/lucid_chat.png"],
+                    ["Luctus F4menu","A simple, one-file F4 menu that just works","files/luctus_f4menu.zip","images/luctus_f4menu.png"],
+                    ["Luctus Warn","A warning system that should be enough for everyone","files/luctus_warn.zip","images/luctus_warn.png"],
+                    ["Lucid Radio","A non-lagging and optimized radio where players can choose their own frequency","files/lucid_radio.zip","images/lucid_radio.png"],
+                    ["Luctus Whitelist","A free and simple whitelist addon for e.g. SCPRP servers","files/luctus_whitelist.zip","images/luctus_whitelist.png"],
+                    ["Luctus Technician","A darkrp-city-worker replacement addon that is free and a simple money-making job","files/luctus_technician.zip","images/luctus_technician.png"],
+                    ["Luctus Emote","An emote weapon that features a list of emotes to choose from, also shows you if you are currently emoting","files/luctus_emote.zip","images/luctus_emote.png"],
+                    ["Luctus FPS Boost","A very simple fps boost window in a single cl lua file","files/luctus_fps_boost.zip","images/luctus_fpsboost.png"],
+                    ["Luctus Doorhud","Changes the buymenu and doordisplay to look better than default","files/luctus_doorhud.zip","images/luctus_doorhud.png"],
+                    ["Luctus Anticheat","A very efficient anticheat that catches scriptkiddies","files/luctus_ac.zip","images/luctus_anticheat.png"],
+                    ["Luctus Namechange","A simple 'please change your name' window upon first joining the server","files/luctus_namechange.zip","images/luctus_namechange.png"],
+                    ["Lucid Chocolate Maker","A simple re-programmed job from a darkrp server, features a money-farming job","files/lucid_chocolate_maker.zip","images/lucid_chocolate_maker.png"],
+                    ["Luctus Medic","(unfinished) Very basic medic mod where you have to wait until you can respawn","files/luctus_medic.zip","images/luctus_medic.png"],
+                    ["Luctus NLR","A NLR zone for players if they die","files/luctus_nlr.zip","images/luctus_nlr.png"],
+                    ["Luctus Safezones","Create a safezone at spawn so that nobody can be shot there","files/luctus_safezones.zip","images/luctus_safezones.png"],
+                    ["Luctus Refunds","Automatically refund players if the server crashes, map changes, etc.","files/luctus_refunds.zip","images/luctus_refunds.png"],
+                    ["Luctus Statistics","With !stats you open the job statistics - it shows which job gets played the most","files/luctus_statistics.zip","images/luctus_statistics.png"],
+                    //["Luctus","DESCRIPTION","files/luctus_scoreboard.zip","images/lucid_scoreboard.png"],
+                    ["Luctus Research","An SCPRP addon for researchers to write down notes","files/luctus_research.zip","images/luctus_research.png"],
+                    ["Luctus Fancyjobmsg","An addon that simply adds a message when you change jobs","files/luctus_fancyjobmsg.zip","images/luctus_fancyjobmsg.mp4"],
+                ];
+                addons.forEach(function(v,k){
+                    AddSection(v[0],v[1],v[2],v[3],(k%2==1)?true:false);
+                });
+            </script>
+	</body>
+</html>

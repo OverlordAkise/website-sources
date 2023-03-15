@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>scprp | luctus.at</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <meta name="description" content="garrys mod scprp addons, free for everyone. Created by overlordakise">
+		<meta property="og:image" content="https://luctus.at/favicon.ico">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            .spotlights section .image {
+                width: auto;
+                padding:10px;
+            }
+            .spotlights section img {
+                max-width: 500px;
+                width: 100%;
+            }
+            .spotlights section video {
+                max-width:500px;
+                width: 100%;
+            }
+            @media screen and (min-width: 980px) {
+                .spotlights section img {
+                    min-width:500px;
+                }
+                .spotlights section video {
+                    min-width:500px;
+                }
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Luctus</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="darkrp.html">darkrp</a></li>
+						<li><a href="scprp.html" class="active">scprp</a></li>
+						<!--<li><a href="devhud.html">devhud</a></li>-->
+						<li><a href="/book">book</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<section id="addons" class="wrapper style2 spotlights">
+                        <div class="inner">
+							<h1 class="major">SCPRP Addons</h1>
+                            <section>
+                                All these addons have been written by me, OverlordAkise.<br>
+                                You can download them either via the button or get the newest version from my github at:<br>
+                                <a href="https://github.com/OverlordAkise/scprp-addons" target="_blank">https://github.com/OverlordAkise/scprp-addons</a>
+                            </section>
+                        </div>
+                        <!--
+						<section>
+							<a href="#" class="image"><img src="images/lucid_char.png" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Sed ipsum dolor</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        <section>
+							<a href="#" class="image"><img src="images/luctus_config.png" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Feugiat consequat</h2>
+									<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									<ul class="actions">
+										<li><a href="generic.html" class="button">Learn more</a></li>
+									</ul>
+								</div>
+							</div>
+						</section>
+                        -->
+                    </section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; luctus.at // All rights reserved.</li><li>Made by OverlordAkise</li><li>Design: <a href="http://html5up.net">HTML5 UP - Hyperspace</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+            <script>
+                function AddSection(name,desc,downLink,imgLink,isLeft){
+                    let mainContent = document.getElementById("addons");
+                    let section = document.createElement("section");
+                    let image = document.createElement("a");
+                    image.classList.add("image");
+                    image.href = imgLink;
+                    
+                    let content = document.createElement("div");
+                    content.classList.add("content");
+                    let inner = document.createElement("div");
+                    inner.classList.add("inner");
+                    let h2 = document.createElement("h2");
+                    h2.innerHTML = name;
+                    let p = document.createElement("p");
+                    p.innerHTML = desc;
+                    let ul = document.createElement("ul");
+                    ul.classList.add("actions");
+                    let li = document.createElement("li");
+                    
+                    let a = document.createElement("a");
+                    a.href = downLink;
+                    a.classList.add("button");
+                    a.innerText = "Download "+name.split(" ")[1];
+                    
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                    inner.appendChild(h2);
+                    inner.appendChild(p);
+                    inner.appendChild(ul);
+                    content.appendChild(inner);
+                    
+                    let pic = null
+                    if (imgLink.includes(".mp4")) {
+                        pic = document.createElement("video");
+                        let source = document.createElement("source");
+                        source.src = imgLink;
+                        source.type = "video/mp4";
+                        pic.appendChild(source);
+                        pic.toggleAttribute("autoplay");
+                        pic.toggleAttribute("loop");
+                        pic.toggleAttribute("muted");
+                        pic.toggleAttribute("playsinline");
+                        pic.muted = true;
+                        pic.loop = true;
+                    }else{
+                        pic = document.createElement("img");
+                        pic.src = imgLink;
+                        pic.alt = "A screenshot of "+name;
+                    }
+                    
+                    image.appendChild(pic);
+                    
+                    section.appendChild(image);
+                    section.appendChild(content);
+                    
+                    mainContent.appendChild(document.createElement("hr"));
+                    mainContent.appendChild(section);
+                    
+                }
+                let addons = [
+                    ["Luctus Activityplan","An activity plan for d-class players","files/luctus_activityplan.zip","images/luctus_activityplan.png"],
+                    ["Luctus Code","A small box in the top right showing the current code (red,yellow,green)","files/luctus_code.zip","images/luctus_code.png"],
+                    ["Lucid SCP Names","A window whenever you change jobs to set your job-name (saves after change)","files/lucid_scp_names.zip","images/lucid_scp_names.png"],
+                    ["Custom Lootsystem","Loot entities for weapons or entities. Shows when it can next be looted","files/lootsystem.zip","images/lootsystem.mp4"],
+                    ["Luctus Intercom","Everyone on the map hears you in 2D if you get close to an intercom","files/luctus_intercom.zip","images/luctus_intercom.mp4"],
+                    ["Luctus SCP Management","Ban players from jobs, set the scp code or enable emergency jobs","files/luctus_scp_mgmt.zip","images/luctus_scp_mgmt.mp4"],
+                ];
+                addons.forEach(function(v,k){
+                    AddSection(v[0],v[1],v[2],v[3],(k%2==1)?true:false);
+                });
+            </script>
+	</body>
+</html>

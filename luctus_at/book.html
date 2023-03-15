@@ -1,0 +1,156 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>book | luctus.at</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <meta name="description" content="luctus book, an exploit-removing script for servers. Created by overlordakise">
+		<meta property="og:image" content="https://luctus.at/favicon.ico">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            .luctusBlock {
+                display:inline-block;
+                width:18%;
+                min-width:100px;
+                height:250px;
+                border: 1px solid violet;
+                margin: 5px;
+                padding: 10px;
+                margin: 0 auto;
+                vertical-align:top;
+                text-align:center;
+            }
+            .luctusBlock span {
+                display:block;
+                text-align:center;
+                font-size:3em;
+            }
+            .luctusBlock strong { display: block; font-size: 2em; }
+            @media screen and (max-width: 980px) {
+                .luctusBlock {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Luctus</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="darkrp.html">darkrp</a></li>
+						<li><a href="scprp.html">scprp</a></li>
+						<!--<li><a href="devhud.html">devhud</a></li>-->
+						<li><a href="book.html" class="active">book</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<div id="wrapper">
+                <section id="main" class="wrapper">
+                    <div class="inner">
+                        <h1 class="major">luctus' book</h1>
+                        <section>
+                            <h2>About</h2>
+                            <p>Luctus' Book is an anti-exploit menu written by OverlordAkise.<br>
+                            It features a small footprint with no gui and only one console variable, which makes it undetectable against all the currently available anticheat systems.<br>
+                            It is easy to use and should help a DarkRP server to secure and protect it's players and the server itself aswell.</p>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>Features</h2>
+                            <div class="row">
+                                <div class="col-4 col-12-medium">
+                                    <span class="icon solid major style1 fa-code"></span>
+                                    <h3>Easy Code</h3>
+                                    <p>It should be very simple to extend the script with even more exploits. If you find any please forward them to me so that they can be included here.</p>
+                                </div>
+                                <div class="col-4 col-12-medium">
+                                    <span class="icon major style3 fa-copy"></span>
+                                    <h3>Lightweight</h3>
+                                    <p>Only one file and only one console command makes it very lightweight and thus easy to use even if an anticheat system is present on the server.</p>
+                                </div>
+                                <div class="col-4 col-12-medium">
+                                    <span class="icon major style5 fa-gem"></span>
+                                    <h3>Quality</h3>
+                                    <p>All exploits were manually found and tested by me. In comparison to older exploit menus luctus' book has only new and working ones that are an active threat.</p>
+                                </div>
+                            </div>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>Statistics</h2>
+                            <ul class="statistics">
+                                <li class="luctusBlock">
+                                    <span class="icon solid fa-bug"></span>
+                                    <strong>35</strong> Exploits
+                                </li>
+                                <li class="luctusBlock">
+                                    <span class="icon solid fa-grip-lines"></span>
+                                    <strong>631</strong> Lines of code only
+                                </li>
+                                <li class="luctusBlock">
+                                    <span class="icon solid fa-eye-slash"></span>
+                                    <strong>1</strong> Console variable only
+                                </li>
+                                <li class="luctusBlock">
+                                    <span class="icon solid fa-hands-helping"></span>
+                                    <strong>62</strong> Servers helped
+                                </li>
+                                <li class="luctusBlock">
+                                    <span class="icon solid fa-clock"></span>
+                                    <strong>01.02.2023</strong> Last updated
+                                </li>
+                            </ul>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>Download</h2>
+                            <p>Simply download the file with the button below and put it in your <code>garrysmod/lua</code> folder.<br>
+                            <br>
+                            To execute it either use a 3rd party tool or, if lua_allowcslua is enabled, <br>
+                            type <code>lua_openscript_cl book.lua</code> into the console.<br>
+                            Usage:<br>
+                            <code>book open</code> - to test for exploits<br>
+                            <code>book read</code> - to list available exploits<br>
+                            <code>book cook 3</code> - Executes the 3rd found exploit<br>
+                            </p>
+                            <ul class="actions special">
+                                <li><a href="https://raw.githubusercontent.com/OverlordAkise/darkrp-exploits/main/scripts/book.lua" class="button" download>Download</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; luctus.at // All rights reserved.</li><li>Made by OverlordAkise</li><li>Design: <a href="http://html5up.net">HTML5 UP - Hyperspace</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

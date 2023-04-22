@@ -1,4 +1,7 @@
 # Dynamic HUDs
+
+**Disclaimer: This page is subjective!**
+
 TL;DR: Only do dynamic HUDs if you are already experienced with LUA and want to support all aspect ratios! If you do not want to explicitly support 21:9 or 4k in your HUD then use static variables for your elements!
 
 You can easily, with the help of `ScrW()` and `ScrH()`, create dynamic HUDs that scale with the users screen resolution. For example, to always cover the top part of the users screen in darkness, you can use the following:

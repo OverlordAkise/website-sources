@@ -14,6 +14,9 @@
 		<meta property="og:image" content="https://luctus.at/favicon.ico">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
         <style>
+            .luctusImage {
+                max-width:100%;
+            }
             .luctusBlock {
                 display:inline-block;
                 width:18%;
@@ -76,7 +79,7 @@
                         <br><hr><br>
                         <section>
                             <h2>About the data</h2>
-                            <div style="width:500px;background-color:GhostWhite;">
+                            <div style="max-width:100%;width:500px;background-color:GhostWhite;">
                             <iframe src="images/istina/info.txt" width="500" height="300" frameBorder="0"></iframe>
                             </div>
                         </section>
@@ -89,12 +92,12 @@
                             <h2>Screen Resolution</h2>
                             <hr>
                             <br>
-                            <img src="images/istina/screensizes_playtime.png">
+                            <img class="luctusImage" src="images/istina/screensizes_playtime.png">
                             <p>The above image shows the screen resolution count of players by playtime. (+50.000 data points)<br>
                             More than 3/4th of players are playing in FullHD, while the other ones are mainly split into higher resolutions with different aspect ratios.<br>
                             <br>
                             We can also take a look at the unique players version of this graph:</p>
-                            <img src="images/istina/screensizes_unique.png">
+                            <img class="luctusImage" src="images/istina/screensizes_unique.png">
                             <p>As you can see above, the screen resolutions of only unique players (full pie chart consists of ~600 data points) is still more than 3/4th of FullHD players.<br>
                             <br>
                             This means that if you write your HUD only with FullHD screen resolution in mind then you are only neglecting less than 1/4th of the playerbase.</p>
@@ -104,26 +107,26 @@
                             <hr>
                             <br>
                             <p>All the servers in this statistic do not tell players to upgrade to 64bit. This means this statistic is not influenced by specific servers pushing their players to one side.</p>
-                            <img src="images/istina/jitver_playtime.png">
+                            <img class="luctusImage" src="images/istina/jitver_playtime.png">
                             <p>If we look at the above pie chart we can see that, by playtime, a lot more players use the 64bit version of Garry's Mod than the 32bit version.</p>
-                            <img src="images/istina/jitver_unique.png">
+                            <img class="luctusImage" src="images/istina/jitver_unique.png">
                             <p>But if we look at the unique version of this graph then we can see that the around 600 players split up into nearly exactly 50/50.<br>
                             This means it is not save to use 64bit-only features, as nearly half of the players are still using the 32bit version of the game. These features are, for example: Google Drive websites in the ingame browser.</p>
                             
                             <h2>Addons of players</h2>
                             <hr>
                             <br>
-                            <img src="images/istina/addons.png">
+                            <img class="luctusImage" src="images/istina/addons.png">
                             <p>As the above scatter chart shows, most of the players have less than ~250 addons which are, combined in size, less than ~25GB in size.<br>
                             One special case is on the most top left corner, which shows that one player has over 2000 addons installed, which have a combined size of over 200GB.</p>
                             
                             <h2>Average FPS</h2>
                             <hr>
                             <br>
-                            <img src="images/istina/avgfps_plycount.png">
+                            <img class="luctusImage" src="images/istina/avgfps_plycount.png">
                             <p>The above graph shows the average fps of every player on the server combined on the Y axis and the amount of players on the server on the X axis.<br>
                             This not only shows that im missing data on the right side, but also that the FPS on average decreases the more players are on the server.</p>
-                            <img src="images/istina/avgfps_plytime.png">
+                            <img class="luctusImage" src="images/istina/avgfps_plytime.png">
                             <p>The above graph shows the average FPS of a player on the Y axis and the current session playtime on the X axis.<br>
                             This shows that the longer you play, the less FPS on average you have.</p>
                         </section>

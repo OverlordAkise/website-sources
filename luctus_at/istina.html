@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>istina | luctus.at</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+        <meta name="description" content="luctus book, an exploit-removing script for servers. Created by overlordakise">
+		<meta property="og:image" content="https://luctus.at/favicon.ico">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        <style>
+            .luctusBlock {
+                display:inline-block;
+                width:18%;
+                min-width:100px;
+                height:250px;
+                border: 1px solid violet;
+                margin: 5px;
+                padding: 10px;
+                margin: 0 auto;
+                vertical-align:top;
+                text-align:center;
+            }
+            .luctusBlock span {
+                display:block;
+                text-align:center;
+                font-size:3em;
+            }
+            .luctusBlock strong { display: block; font-size: 2em; }
+            @media screen and (max-width: 980px) {
+                .luctusBlock {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+            }
+        </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Luctus</a>
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="darkrp.html">darkrp</a></li>
+						<li><a href="scprp.html">scprp</a></li>
+						<li><a href="ttt.html">ttt</a></li>
+						<li><a href="istina.html" class="active">stats</a></li>
+						<li><a href="book.html">book</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<div id="wrapper">
+                <section id="main" class="wrapper">
+                    <div class="inner">
+                        <h1 class="major">istina | gmod statistics</h1>
+                        <section>
+                            <img style="max-width:100%" src="images/istina_banner.png">
+                        </section>
+                        <hr>
+                        <br>
+                        <section>
+                            <h2>About</h2>
+                            <p>Istina is my project name for a gmod statistics addon that collects a lot of data about the server and players.<br>
+                            This page exists to showcase a few statistics about the data collected so far.<br>
+                            The banner and icon have been specially drawn for this project by Holly.</p>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>About the data</h2>
+                            <div style="width:500px;background-color:GhostWhite;">
+                            <iframe src="images/istina/info.txt" width="500" height="300" frameBorder="0"></iframe>
+                            </div>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>Statistics</h2>
+                            <p>Disclaimer: All these statistics are, if not otherwisely stated, done by calculating over all data, and not over unique players.<br>
+                            This means that the longer you play, the more your statistics count.<br>
+                            In the pictures you can easily distinguish between "playtime" and "unique" type of statistics by the file name.</p>
+                            <h2>Screen Resolution</h2>
+                            <hr>
+                            <br>
+                            <img src="images/istina/screensizes_playtime.png">
+                            <p>The above image shows the screen resolution count of players by playtime. (+50.000 data points)<br>
+                            More than 3/4th of players are playing in FullHD, while the other ones are mainly split into higher resolutions with different aspect ratios.<br>
+                            <br>
+                            We can also take a look at the unique players version of this graph:</p>
+                            <img src="images/istina/screensizes_unique.png">
+                            <p>As you can see above, the screen resolutions of only unique players (full pie chart consists of ~600 data points) is still more than 3/4th of FullHD players.<br>
+                            <br>
+                            This means that if you write your HUD only with FullHD screen resolution in mind then you are only neglecting less than 1/4th of the playerbase.</p>
+                            </p>
+                            
+                            <h2>Gmod 64/32 bit versions</h2>
+                            <hr>
+                            <br>
+                            <p>All the servers in this statistic do not tell players to upgrade to 64bit. This means this statistic is not influenced by specific servers pushing their players to one side.</p>
+                            <img src="images/istina/jitver_playtime.png">
+                            <p>If we look at the above pie chart we can see that, by playtime, a lot more players use the 64bit version of Garry's Mod than the 32bit version.</p>
+                            <img src="images/istina/jitver_unique.png">
+                            <p>But if we look at the unique version of this graph then we can see that the around 600 players split up into nearly exactly 50/50.<br>
+                            This means it is not save to use 64bit-only features, as nearly half of the players are still using the 32bit version of the game. These features are, for example: Google Drive websites in the ingame browser.</p>
+                            
+                            <h2>Addons of players</h2>
+                            <hr>
+                            <br>
+                            <img src="images/istina/addons.png">
+                            <p>As the above scatter chart shows, most of the players have less than ~250 addons which are, combined in size, less than ~25GB in size.<br>
+                            One special case is on the most top left corner, which shows that one player has over 2000 addons installed, which have a combined size of over 200GB.</p>
+                            
+                            <h2>Average FPS</h2>
+                            <hr>
+                            <br>
+                            <img src="images/istina/avgfps_plycount.png">
+                            <p>The above graph shows the average fps of every player on the server combined on the Y axis and the amount of players on the server on the X axis.<br>
+                            This not only shows that im missing data on the right side, but also that the FPS on average decreases the more players are on the server.</p>
+                            <img src="images/istina/avgfps_plytime.png">
+                            <p>The above graph shows the average FPS of a player on the Y axis and the current session playtime on the X axis.<br>
+                            This shows that the longer you play, the less FPS on average you have.</p>
+                        </section>
+                        <br><hr><br>
+                        <section>
+                            <h2>Source</h2>
+                            <p>All the above statistics have been collected with my self-written, open source Garry's Mod addon called "istina" (or, if installed on your server, probably named luctus_monitor).<br>
+                            Github link: <a target="_blank" href="https://github.com/OverlordAkise/istina">https://github.com/OverlordAkise/istina</a><br>
+                            All the data processed is anonymized.<br>
+                            The statistical analysis was done with Python3 via Jupyterlab, using pandas for data storage and matplotlib for creating the graphs and charts.</p>
+                        </section>
+                    </div>
+                </section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; luctus.at // All rights reserved.</li><li>Made by OverlordAkise</li><li>Design: <a href="http://html5up.net">HTML5 UP - Hyperspace</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

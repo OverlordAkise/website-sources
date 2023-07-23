@@ -3,7 +3,7 @@
 Gmod is a very old game and developers have come a long way to make their addons secure.
 
 Secure in this Garry's Mod aspect means "no exploits, bugs or backdoors".  
-Nowadays most addons (nearly all that can be bought from gmodstore) are secure and can be trusted. While I've been able to find a lot of exploits in older addons, the newer ones are of way higher quality.
+Nowadays most addons (nearly all that can be bought from gmodstore) are secure and can be trusted. While I've been able to find a lot of exploits in older addons, the newer ones are of higher quality.
 
 
 ## What is a backdoor?
@@ -60,6 +60,22 @@ end)
 
 The above example is a piece of code that gives admins, if they send the net message from their DFrame locally, a physgun.  
 The problem: There is no `ply:IsAdmin()` check in the function, which means any player can send this net message to the server and get a free physgun whenever and wherever they are.
+
+
+## What is cheating?
+
+Cheating is basically defined as "giving yourself an advantage over others".  
+
+In Gmod most people see cheats as:
+
+ - Aimbot, automatically and perfectly aiming at your targets
+ - Wallhack, being able to see others through walls
+ - Movement, like bunnyhopping and gaining incredible amounts of speed
+
+These cheats are not the same as exploits in the eyes of many. Every FPS (first person shooter) game can have aimbot cheats, but not every game has exploit menus.  
+These cheats are also easier to write, execute and use than different exploits that need to first be found and then tested.
+
+In comparison to exploits or backdoors these cheats can be used on any server and any gamemode, as they use the game itself and not a specific gamemode or addon.
 
 
 ## Non-important Security

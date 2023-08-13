@@ -8,7 +8,7 @@ For this kind of information please visit the links provided in the Introduction
 
 # Introduction
 
-In Garry's Mod you can use 4 different networking systems to network data to players:
+In Garry's Mod you can use 4 different networking systems to network data:
 
  - **net** , with e.g. `net.Send(ply)`
  - **NW** , with e.g. `ply:SetNWString("test","yes")`
@@ -37,6 +37,11 @@ print(debug.getinfo(Entity(1).SetNWFloat).short_src)
 print(debug.getinfo(Entity(1).SetNW2Float).short_src)
 -- [C]
 ```
+
+From all of the 4 mentioned methods of networking, only one allows a player to send data to the server: The `net` library.  
+The `NW`, `NW2` and `umsg` libraries all only allow the server to send data to players and not the other way around.  
+
+This means that, if you need to let players send data to the server, you have to use `net` messages.  
 
 
 

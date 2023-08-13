@@ -1,14 +1,16 @@
 # Efficiently network tables
 
-Many people invent their own networking mini-library to be able to send a big amount of data via net messages.
+The net library has a `net.WriteTable` function that is able to send any data you throw at it. This is quite unoptimized.
 
-You don't need this though. In my 4 years of LUA experience I never have reached the 64kb limit with a net message.
+Side Note: In my over 5 years of LUA experience I never have reached the 64kb limit with a net message.
 
-Instead of writing a C-like networking wrapper you could compress big tables and send them as pure data.
+Instead of writing a multi-net.WriteInt function or a C-like networking wrapper you could compress big tables and send them as pure data with `net.WriteData`.
 
-This means: To efficiently send tables via net messages simply convert it to json and compress it. This method requires a bit more CPU but it allows you to "ignore" the limit on net-messages sizes.
+This would change the process from `net.WriteTable` to: Convert the table to JSON, compress it and send it via `net.WriteData`.  
+This method requires a bit more CPU but it allows you to nearly "ignore" the limit on net-message sizes.
 
-Let's show an example.
+
+## Example code
 
 Normally you would do the following:
 
@@ -53,11 +55,12 @@ else
 end
 ```
 
-Now, if you send the same 100 element string array as above it shows the message size as `7209`, which is 2/3 of the original size!
+Now, if you send the same 100 element string array as the WriteTable example above it shows the message size as `7209`, which is 2/3 of the original size!
 
-I also tested to send the json string without compressing it via `net.WriteString` and it was bigger than the default method of WriteTable.
 
-In comparison the different network-message lengths (aka. sizes):
+## Result
+
+In comparison the different network-message lengths are:
 
     DEFAULT-WRITETABLE-LENGTH:          11208
     JSON-WRITESTRING-LENGTH:            12816

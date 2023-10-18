@@ -2,6 +2,21 @@
 
 This page explains a lot of darkrp's internal workings, what TEAM_ variables are and everything else that you have to look out for.
 
+## Random info
+
+The DarkRP gamemode is quite old, but this doesn't mean it is bad.  
+Older software is preferred for production systems because it has been "battle tested" and thus has less exploits or bugs than newer, untested software.  
+I can be sure that darkrp has no known exploits, because everything has been fixed over time already. Other gamemodes are not as audited as darkrp and could have some hidden exploits.
+
+DarkRP still uses the `umsg` networking library on some code pieces, even though the `net` library should be used nowadays.
+
+DarkRP loads during its main gamemode loading process the darkrpmodification's `jobs.lua` file. This means that any problem in the jobs.lua file creates a problem in the darkrp loading process. This is the reason that sometimes you spawn as a gray and block-y model when joining the server. If anything during the gamemode loading process fails everything after it may fail too.
+
+DarkRP has an AFK system and a Cook-job with a "hungermod" already included by default. These may be basic, but it means that you do not have to code it yourself if you need these functionalities.
+
+The MySQLite library of darkrp enables you to have a central point for your sql configuration. If you use this in your addons you can toggle the functionality between mysql and sqlite with one config setting in darkrpmodification.
+This also means if someone is using mysql in darkrp and your addon uses the MySQLite library then your addon automatically uses their mysql database too. (Which means you do not have to code a mysql library yourself)
+
 
 ## TEAM variables
 

@@ -1,0 +1,80 @@
+istina | status
+2023-11-20 16:44:04.067098
+
+---rows and data---
+Server:	690426
+Player:	523681
+Weaponkills:	682126
+Jobtimes:	1506
+Jointime:	16423
+Bans:	1254
+Warns:	7465.0
+LuctusLogs:	6031600
+Unique servers:	22
+Unique players:	2646
+
+---addons of players---
+average addon size:	22965.995
+maximum addon size:	242986
+average addon count:	273.269
+maximum addon count:	2459
+
+---averages---
+average ping:	53.8644
+average fps:	106.1921
+average fps (no tab-out):	107.7117
+max fps recorded:	958
+
+---top 10 screensizes---
+1920x1080:	381546
+2560x1440:	48378
+1600x900:	18419
+1680x1050:	8186
+1366x768:	7720
+1280x1024:	4983
+1280x720:	4688
+1920x1200:	4445
+3840x2160:	4384
+1768x992:	4195
+
+---screenmode count---
+fullscreen:	373670
+window:	144149
+
+---bit versions---
+LuaJIT 2.1.0-beta3:	312395
+LuaJIT 2.0.4:	205424
+
+---top 10 log events---
+Damage:	3440290
+Weapons:	1132324
+Money:	386235
+PlayerSay:	243050
+PlayerSpawn:	158927
+PlayerDeath:	120975
+ulx:	102195
+Spawned:	83165
+Toolgun:	76430
+AreaManager:	66738
+
+---top 10 ulx commands---
+ulx noclip:	23765
+ulx asay:	12548
+ulx respawn:	6712
+ulx goto:	6202
+ulx bring:	4213
+ulx groupallow:	2938
+ulx return:	1842
+ulx setjob:	1705
+ulx hp:	1693
+ulx invis:	1642
+ulx psay:	1582
+ulx vis:	1466
+ulx setrank:	1419
+ulx administrate:	1159
+ulx groupdeny:	1075
+ulx god:	1015
+ulx model:	991
+ulx slap:	909
+ulx give:	902
+ulx cloak:	898

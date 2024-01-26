@@ -18,6 +18,10 @@ gLUA is also single-threaded and the main execution thread of the gmod "runtime"
 If you run a very expensive function in a `for` loop on a client then the game becomes unresponsive and freezes.  
 If you have unoptimised functions on a server then the whole server is going to lag.
 
+As far as I know:  
+If the server receives a http response or a net message it will put them in a queue and execute them during the next tick.  
+This means that if 20 players send a net message at the same time the server will execute the `net.Receive` function 20 times in the next tick, which could create a stutter or small lag (=teleport back) for players if it takes a long time. This is because of the serial nature of the source engine and glua.
+
 The binding of source engine to LUA is done via hooks.  
 The source engine calls a hook, e.g. serversided PlayerSay, whenever such an event, e.g. a player sends a chat message, happens ingame.  
 This also means, if a hook runs way too long and gets called very often, that the engine waits for the response and thus starts to lag. This can be easily observed if you have a very long `sql.Query` in a `net.Receive` function on the server: The whole server freezes until the database returns the result. (This problem happened with luctus_logs in the beginning but is fixed since beta)

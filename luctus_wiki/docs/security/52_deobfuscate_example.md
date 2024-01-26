@@ -1,4 +1,4 @@
-# Deobfuscating lua code
+# Deobfuscation example
 
 To obfuscate means to make your code unreadable but still runable.  
 This makes it difficult for other people to steal your code and change it, because all of it is "mangled" into a different form.
@@ -86,7 +86,7 @@ RunString([[
 ```
 
 To start with line 1: All of the code is being run with RunString, even though the code could also be run without it.  
-The source of the RunString at the end, "tenjznj", will be checked inside the local function "RunningDRMe", but this could also be removed together with the RunString. At the same time we could also remove the local function and just run the code directly, as neither RunString nor a function is not needed to run the code.
+The source of the RunString at the end, "tenjznj", will be checked inside the local function "RunningDRMe", but this could also be removed together with the RunString. At the same time we could also remove the local function and just run the code directly, as neither RunString nor a function is needed to run the code.
 
 This would turn the above code into this:
 

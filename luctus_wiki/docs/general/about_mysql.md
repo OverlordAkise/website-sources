@@ -101,6 +101,7 @@ Advantages of using MySQL:
  - Size doesn't become a problem, as MySQL scales better with millions of records
  - You can synchronize the database between multiple garry's mod servers
  - You can access data more easily from a webserver
+ - By using MySQL you offload the more complex queries to another server, which doesn't make your gmod server lag if the query takes a long time to complete
 
 Disadvantages of using MySQL:
 

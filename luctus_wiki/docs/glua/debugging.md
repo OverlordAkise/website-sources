@@ -53,10 +53,10 @@ If you print using comas `,` you can also print `nil` values, which means your p
 Another way of doing it would be with a DebugPrint function like the following:
 
 ```lua
-MYADDON_DEBUG = false
+MYADDON_DEBUG_ACTIVE = false
 --Debug function that only prints if debug is ON
 function MYADDON_DEBUG(text)
-    if MYADDON_DEBUG then print(text) end
+    if MYADDON_DEBUG_ACTIVE then print(text) end
 end
 --Use it inside functions
 function MyAddonDoStuff(ply)
@@ -68,6 +68,22 @@ end
 Both ways (print and debugprint) of debugging work the same and both have advantages and disadvantages.  
 Putting prints anywhere and removing them before release keeps your code clean and efficient.  
 Putting a debug function everywhere makes the performance a tiny bit worse and the code a bit more unreadable, but helps if you need to quickly debug something after release or on a live server.
+
+
+## DebugInfo ingame print
+
+A very easy way to print information ingame for debugging purposes is the `DebugInfo` function.  
+This function prints text on the right side of your screen.  
+Example:
+
+```lua
+DebugInfo(10,"TestMessage")
+```
+
+The above code example will print the `TestMessage` text at the 10th line of your screen. Line 1 is at the top of the right side of your screen.
+
+You could change the above created MYADDON_DEBUG function to use DebugInfo.  
+This would save you from opening your console to get debug information.
 
 
 ## Finding function executions

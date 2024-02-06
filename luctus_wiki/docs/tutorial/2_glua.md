@@ -8,7 +8,16 @@ Now you can start your Garry's Mod game locally with "Start a new game" and it s
 The text is blue if it has been printed by the server and orange if client. Because we put our script into `autorun/server` we should see the loaded line in blue.
 
 
-## Variables
+# General
+
+LUA does not use semicolons `;` at the end of lines. You can use them but they are not needed.  
+Functions start after the closing bracket `)` of the name definition and end with the keyword `end`.  
+Every logical codeblock stops with an `end`, there are no curly brackets.
+You do not have to use brackets around if's (`if a then a() end` is the same as `if (a) then a() end`).
+
+
+
+# Variables
 
 Everything in LUA is a variable. A variable is like the `x` you learned in math class where for example `1*x = 2`.  
 In this example x would be a `number`, also called `int` or `Integer`.  
@@ -20,6 +29,7 @@ age = 50
 ```
 
 `age` is now a variable that holds the value/number `50`.  
+We call this "declaration", as in "we declare the variable".  
 If you now want to print your age you can use the following function:
 
 ```lua
@@ -275,3 +285,324 @@ ply.Kill(ply)
 ```
 
 (If you read such `method` code you will see `self` a lot. In this case self means "the object this method has been called upon".)
+
+
+# Validity and code blocks
+
+Lua docs page for this topic: [https://www.lua.org/manual/5.3/manual.html#3.5](https://www.lua.org/manual/5.3/manual.html#3.5)
+
+Not every variable is always "valid" (=exists).  
+Some variables are only valid for "this execution" and others are only valid in a function.  
+An example:
+
+```lua
+function Greet(name)
+    print("Hi, my name is "..name)
+end
+
+Greet("Chris")
+
+print(name)
+```
+In the above example the variable `name` only exists inside the function.  
+We get an error in the `print(name)` line because the variable `name` is not set.
+
+If a variable deosn't have a value it has the value `nil`. In the above example, the variable `name` in the last row has the value `nil`, meaning "nothing" or "empty".  
+Important note: An empty string (e.g. `name = ""`) is NOT the same as an empty variable like `age = nil`. One is of datatype string, the other is "nil".
+
+In the above example we also see the "area of validity" for the variable name.  
+The code "indentation" (=how many spaces prepend a line) is showing the so called "visibility" of the variable.  
+In the above example we have the function `Greet` which has only one line of code inside it. This line of code is put 4 spaces to the right, which indicates a "code block". Inside this code block we have one new variable declared: `name`, which is provided by the function call `Greet("Chris")`. This variable is only valid inside this codeblock! (=inside the indented codelines)
+
+By default every variable you create is global. Example:
+
+```lua
+function Greet()
+    print(name)
+end
+
+name = "Chris"
+
+Greet()
+```
+
+This code example would print out `Chris`. The variable `name` is globally accessable (=global) and can be used in other lua files too.  
+**This is considered bad!**
+
+To create a variable that is only valid in this local file (or function/codeblock) we use the `local` word infront of the declaration.
+
+An example of creating a local variable:
+
+```lua
+local WindowHeight = 900
+```
+
+If this is inside a lua file and not in a function it will be local to the lua file. If you put this statement in a function it will be local to that function only.
+
+An example:
+
+```lua
+
+function Greet()
+    local name = "Chris"
+    print("Hi, "..name)
+end
+
+Greet()
+-- Prints out Chris
+
+print(name)
+-- Prints nothing as name is nil
+```
+
+In the above example we can see: The `name` variable is only valid inside the `Greet()` function and can not be used or accessed outside of it.
+
+This is called "scoping" or "the scope of a variable".  
+
+The scope of variables is always local to the function being executed.  
+An example:
+
+```lua
+local name = "Chris"
+
+function Greet()
+    print(name)
+end
+
+
+-- In another lua file:
+
+function CallGreet()
+    Greet()
+end
+
+CallGreet()
+-- ^ This will print out "Chris"
+```
+
+In the above example we can see that even though we call another function in another lua file we can still access the local variable. This is because we use this variable in a function that is in the same file.
+
+---
+
+To verify if a variable is "valid" (which means "not nil") we can either check with `not` or with the `IsValid` function.  
+
+To check if a variable has a value we can use the following code:
+
+```
+local name = "Chris"
+
+if not name then
+    print("ERROR: No name set!")
+end
+
+if not age then
+    print("ERROR: No age set!")
+end
+```
+
+If you execute the code above you should see only the `No age set!` error message.  
+With `not` you invert the value behind it. You invert it to a "boolean" value.
+
+Gmod wiki boolean page: [https://wiki.facepunch.com/gmod/boolean](https://wiki.facepunch.com/gmod/boolean)
+
+The boolean (or `bool` for short) datatype is a simple 2-value-only datatype: It can either be `true` or `false`. Booleans are mainly used for comparisons.
+
+The `not` prefix turns a value to its inverted boolean value.  
+If a variable is `nil` it will be `false`. If a variable is not nil it will be `true`. An example:
+
+```lua
+
+local name = "Chris"
+
+if not name then
+--^this translates to:
+if not "Chris" then
+if not true then
+if false then
+--^This will not execute the if block
+
+print(not name) --will print `false`
+print(not mariasAge) --will print `true`, because variable "mariasAge" doesn't exist
+```
+
+But what if a variable exists but is not "valid"?  
+This can happen if, for example, you do the following:
+
+```lua
+--Invite a bot to your server with the console command "bot"
+RunConsoleCommand("bot")
+--Save the player object in a variable
+myplayer = player.GetAll()[2]
+--Kick the bot again
+player.GetAll()[2]:Kick()
+```
+
+After this above code example you have an "invalid" player in the `myplayer` variable. It is a player that has already left the server, which means you can't spawn it or use it for anything else. The `not` prefix will still return true, because the variable `myplayer` is not nil but a `nil player object`.  
+
+To check if a player is Valid you use the `IsValid()` function.  
+An example:
+
+```lua
+-- execute the above code example
+
+if not IsValid(myplayer) then
+    print("ERROR: player is not valid!")
+end
+```
+
+This way you can verify the object variables before using them.  
+IsValid does not work with the basic datatypes that are not objects (boolean, int, string, table) but works with objects (vector,angle,color,player,entity).
+
+If you use the `player.GetAll()` function you do not have to verify every player with `IsValid`. This function will already return only valid players and they are valid in the current execution context.  
+If you wait a second and use a player again (e.g. after a timer) you have to check the player object with IsValid.  
+
+An example: If you want to respawn a player 2 seconds after he died then you have to use `IsValid` in the `timer`, because what if the player left in those 2 seconds? You would try to spawn an invalid player and get a lua error.
+
+
+# Loops
+
+Sometimes you want to go over all thing inside a list. This can be accomplished with the `pair` function.  
+
+An example:
+
+```lua
+for key,value in pairs(player.GetAll()) do
+    print(key,value)
+end
+
+--This would print out:
+--1     Player [1] Chris
+```
+
+The example above will print the index/key/place-in-the-list and playerobject of each player currently on the server.  
+
+The `pair` function returns the key and value of the table provided in a loop and executes the codeblock for each entry.  
+This means the `key` and `value` variables get a different variable value each run. With 20 players the `print` function inside will get executed 20 times, once for each player.  
+To now, for example, kill all players we can do the following:
+
+```lua
+for k,ply in pairs(player.GetAll()) do
+    ply:Kill()
+end
+```
+
+In the above example we go through all the players and kill them.  
+We renamed the `value` variable to `ply` to better show what the variable is.  
+This is only done for readability, you could name your variables whatever you want.
+
+
+
+
+# Code format
+
+Formatting your code correctly is very important for readability and maintainability.
+
+Always indent codeblocks. Use 4 spaces and watch out for correct usage.  
+A **bad** example:
+
+```lua
+--this is a bad example!
+
+function killall()
+for k,v in pairs(player.GetAll()) do
+v:Kill()
+end
+end
+```
+
+The above example may work but looks very unreadable.  
+The good example would be:
+
+```lua
+--this is better!
+
+function KillAllPlayers()
+    for k,ply in pairs(player.GetAll()) do
+        ply:Kill()
+    end
+    -- variable `ply` is not valid here anymore, easily visible now
+end
+```
+
+Lets go over the above example:
+
+ - We renamed the function. It is important to name your functions after what they do. `KillAll` doesnt say what it kills exactly, but `KillAllPlayers` is instantly understandable.
+ - We indented the codeblocks with 4 spaces. This is now more readable and also easier to understand. Now we also see that the `ply` variable is only valid in the middle part of the function where 2 indents (=8 spaces) are.
+ - We renamed the `v` variable to `ply`, which instantly shows what this variable is about. This helps with readability and ease of programming, because now you don't have to wonder what the `v` stands for in this context.
+
+
+Another important thing with code format would be: Naming your global functions and variables uniquely.  
+Please do NOT cut your variable names short and name them things like `nd = 300` (for "NLR Duration"). Variable names should be self explanatory, for example `LUCTUS_MOTD_COMMAND` doesn't need a comment explaining what it does because the variable does that job for us.
+
+In LUA variables overwrite each other if they have the exact name. Example:
+
+```lua
+name = "Chris"
+function ChangeName()
+    name = "Luke"
+end
+
+print(name)
+ChangeName()
+print(name)
+```
+
+The above code example will first print out Chris and then Luke.  
+Imagine that your addon and another addon have the same config variable named `CONFIG_HEALTH`. This means that the second addon could overwrite your own variable.
+
+It is important to name your variables and functions uniquely.  
+This is not important if you have local variables for e.g. colors. Example: 
+
+```lua
+name = "Chris"
+function Greet()
+    local name = "Luke"
+    print("Hi, "..name)
+end
+
+print(name)
+Greet()
+print(name)
+```
+
+In the above example the local `name` variable in the `Greet()` function doesn't change the one outside of it.  
+This means you can name your local variables short and sweet without worrying of overwriting anything.
+
+A good way to handle this is to prefix your variables with your "developer name" and addon name. This way nothing should collide, even if 2 developers create an NLR addon or one developer creates many addons.  
+Example:
+
+```lua
+LUCTUS_NLR_DURATION = 300
+LUCTUS_NLR_TEXT = "Stay out of your NLR!"
+
+function LuctusNlrReset(ply)
+    --[[ code here ]]--
+end
+```
+
+This way you can install 2 NLR addons and nothing would be overriden or buggy.
+
+In the above example my global configuration variables are all upper case.  
+This is because of other languages doing similar things: Constants (=variables who don't change) should be all uppercase.  
+To easily differentiate between config variables and other variables I make them all uppercase. Some people use a table for configs (=`Config.Luctus.NLR.Duration`) but I personally dislike this and would not recommend it.  
+For more details on this read: [https://github.com/OverlordAkise/gmod-lua-performance#config-table-vs-variable](https://github.com/OverlordAkise/gmod-lua-performance#config-table-vs-variable)  
+Short summary: It is slower if you do a table of your config.
+
+In general I recommend you to create your own "coding style" and stick with it. This means "spaces or tabs for indentation", "brackets or none" for `if`s, etc..
+
+This includes variable names. There are many ways to name a multi-word variable, for example with the function name `Create new world`:
+
+ - createNewWorld (camel case)
+ - CreateNewWorld (capital camel case)
+ - CREATE_NEW_WORLD (upper case)
+ - my_identifier (snake case)
+ - create-new-world (kebab case)
+ - createnewworld (flat case)
+
+I personally use the first 3 together:
+
+ - FunctionName in capital camel case
+ - variableNames in camel case
+ - CONFIG_VALUES in upper case
+
+This makes it very easy to read and understand. For example the "flat case" is difficult to read with many words.

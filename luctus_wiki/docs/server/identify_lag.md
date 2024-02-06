@@ -52,6 +52,7 @@ Does it happen with many players online or even with a single person?
 
 These are all important things to note down.  
 Examples on how to fix these issues:
+
  - If it happens on a fixed interval then check your timer.Create function calls
  - If it happens during an event like when a player spawns then check your hooks for that (e.g. PlayerSpawn)
 

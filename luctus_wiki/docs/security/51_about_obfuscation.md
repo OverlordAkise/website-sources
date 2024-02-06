@@ -99,6 +99,7 @@ end
 ```
 
 This decrypt function does the following:
+
  - The string.gmatch function returns a list of found substrings
  - The ".." argument fills this list with 2-character pairs, which is normal for hex
  - The main line that adds the output together converts this hex-char-pair to a number and does a "bitwise xor" on it with 23 before turning it into a single character

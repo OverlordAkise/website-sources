@@ -21,6 +21,7 @@ As already previously mentioned: There exist custom modules that can expand a ga
 Mysqloo is one of those modules. It enables to use mysql instead of sqlite for database storage.
 
 Other examples, which haven't been thoroughly tested by myself:
+
  - gm_redis , which enables the server to use redis servers for storage
  - gmod_luasocket , for tcp sockets to connect to anything
  - gmod-websockets , to extend the http module of gmod with websocket capabilities

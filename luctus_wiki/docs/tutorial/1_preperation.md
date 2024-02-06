@@ -27,6 +27,7 @@ This is the `ply:Spawn()` function. The color of the rectangle besides the funct
 If it is `orange` then it can only be used on the CLIENT. If it is both blue and orange it can be used on both.
 
 An easy helper to quickly differentiate between server and client:
+
  - Does it draw anything on the screen? Then it is CLIENT only
  - Would it be cheating if I could use this function as a player? Then it is SERVER only
 

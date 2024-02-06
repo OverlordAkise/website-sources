@@ -67,6 +67,7 @@ hook.Add("PlayerSpawn","echospawns",EchoSpawn)
 ```
 
 The `hook.Add` function takes 3 arguments:
+
  - The event name, case sensitive
  - A unique name for this function for this event
  - A function that is to be executed when this event occurs

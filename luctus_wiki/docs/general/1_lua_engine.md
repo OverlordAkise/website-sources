@@ -11,8 +11,9 @@ For some benchmarks between lua and lua-jit you can visit [https://github.com/Ov
 gLUA is lua-jit expanded with a few custom functions. That's why others and myself call it "gLUA", because it has noticable differences to other lua implementations.  
 A good rule of thumb for detecting custom garrysmod lua functions and default lua functions: If the function of a module, e.g. `math.Distance`, starts with a capital letter then it is a custom garrysmod function.  
 Examples:
- - math.log, math.random - inbuilt, default lua functions
- - math.Rand, math.Clamp - garrysmod lua functions
+
+ - math.log, math.random ; inbuilt, default lua functions
+ - math.Rand, math.Clamp ; garrysmod lua functions
 
 gLUA is also single-threaded and the main execution thread of the gmod "runtime".  
 If you run a very expensive function in a `for` loop on a client then the game becomes unresponsive and freezes.  

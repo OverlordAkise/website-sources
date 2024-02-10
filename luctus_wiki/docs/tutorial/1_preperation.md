@@ -1,5 +1,9 @@
 # Preperation/Intro
 
+**Warning**: This is a tutorial written by me, OverlordAkise / luctus.  
+This means that it is neither official nor endorsed by facepunch.  
+This is just a written tutorial on how I would teach lua to others.
+
 Garry's Mod uses gLUA as it's scripting language.  
 LUA is a general-purpose scripting language. Based upon that is luajit, a faster version which also adds a few more functions. Based on that is gLUA, which is luajit with more commands and syntax additions.
 
@@ -37,6 +41,8 @@ Example of using this helper:
 
 
 # Addon folder structure
+
+The wiki page for folder structures: [https://wiki.facepunch.com/gmod/Lua_Folder_Structure](https://wiki.facepunch.com/gmod/Lua_Folder_Structure)
 
 Always put your lua files in addons. NEVER put them in the `garrysmod/lua` folder. This makes it very unsorted and difficult to find, there is no advantage of putting your lua files there.
 
@@ -93,3 +99,24 @@ Then there is a client and server file, which hold the actual logic of the addon
 
 Then there is also an entity called `nlr_zone`.  
 All entities inside this folder are named after either the folder they are in or after the lua file that contains it. In this cause the `nlr_zone.lua` file will create an entity that is named `nlr_zone`.
+
+
+# Reloading
+
+By default a local gmod "game" (="starting a new game") has lua refresh on.  
+This means that changes made to lua files are automatically reloaded.  
+There are different szenarios for reloading lua files:
+
+If you create a new lua file (e.g. into an addon or the garrysmod/lua folder) then the server will not load it. You have to restart the gmod server to be able to load it. A map restart is NOT enough!
+
+If you change a lua file and save it then there are 2 possibilities:
+
+ - If luarefresh is activated then the lua file will be loaded again. This happens as soon as your changes have been saved for the file.
+ - If luarefresh is disabled then you have to "change map". This can be done via changelevel, map or commands as "ulx maprestart".
+
+To know if luarefresh is active you have to look at the server start parameters: If it contains `-disableluarefresh` then it is deactivated.  
+If this argument is missing the lua refresh is active.
+
+I recommend to disable it on a live/production server and only enable it on a development server or if you are doing maintenance on the main server.
+
+The wiki page for luarefresh: [https://wiki.facepunch.com/gmod/Auto_Refresh](https://wiki.facepunch.com/gmod/Auto_Refresh)

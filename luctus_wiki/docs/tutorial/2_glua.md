@@ -60,6 +60,20 @@ print("Hello, my name is "..name)
 This will print out your name in a nice format. You can also do this with numbers but not with any other datatype.  
 If you want to add 2 numbers together you would use `+`, like `print(3+3)` would print out `6`.
 
+The difference between a variable and a text are the quotation marks `""` around it.  
+Lets say for example you want to remove a player's crowbar weapon:
+
+```lua
+--bad, won't work:
+ply:StripWeapon(weapon_crowbar)
+
+--good, will work:
+ply:StripWeapon("weapon_crowbar")
+```
+
+In the above example we see that the correct one has quotation marks around the literal weapon name. This is because without quotation marks it would be the variable named `weapon_crowbar` which is nil (=empty or "not set").  
+If you want to literally take the word you write as input then you have to enclose it with quotation marks `"`.
+
 
 To "comment out" or simply "comment" a piece of code you can use `--`. If you put `--` infront of a line of code the engine will ignore that line.  
 To ignore multiple lines you use `--[[` on the first line and `--]]` on the last one.  
@@ -287,7 +301,7 @@ ply.Kill(ply)
 (If you read such `method` code you will see `self` a lot. In this case self means "the object this method has been called upon".)
 
 
-# Validity and code blocks
+# Scope and code blocks
 
 Lua docs page for this topic: [https://www.lua.org/manual/5.3/manual.html#3.5](https://www.lua.org/manual/5.3/manual.html#3.5)
 
@@ -310,7 +324,7 @@ We get an error in the `print(name)` line because the variable `name` is not set
 If a variable deosn't have a value it has the value `nil`. In the above example, the variable `name` in the last row has the value `nil`, meaning "nothing" or "empty".  
 Important note: An empty string (e.g. `name = ""`) is NOT the same as an empty variable like `age = nil`. One is of datatype string, the other is "nil".
 
-In the above example we also see the "area of validity" for the variable name.  
+In the above example we also see the "area of validity" or "scope" for the variable name.  
 The code "indentation" (=how many spaces prepend a line) is showing the so called "visibility" of the variable.  
 In the above example we have the function `Greet` which has only one line of code inside it. This line of code is put 4 spaces to the right, which indicates a "code block". Inside this code block we have one new variable declared: `name`, which is provided by the function call `Greet("Chris")`. This variable is only valid inside this codeblock! (=inside the indented codelines)
 
@@ -380,7 +394,20 @@ CallGreet()
 -- ^ This will print out "Chris"
 ```
 
-In the above example we can see that even though we call another function in another lua file we can still access the local variable. This is because we use this variable in a function that is in the same file.
+In the above example we can see that even though we call another function in another lua file we can still access the local variable. This is because we use this variable in a function that is in the same file.  
+**!** A local variable can only be used AFTER it has been defined. Define local variables BEFORE they are being used in functions!
+
+You can also create local functions. These functions, if defined in a lua file, can only be called inside this lua file.  
+This should be used if you use a function often and don't want to give it a long name, but also don't want to risk of overwriting another function.  
+Example:
+
+```lua
+local function getlevel()
+    return 0
+end
+```
+
+In the above example we created a local function called `getlevel`. This name is rather common in leveling addons, which means if we wouldn't have defined it as local we could've overwritten a different addon's "getlevel" function by accident.
 
 ---
 
@@ -457,6 +484,100 @@ If you use the `player.GetAll()` function you do not have to verify every player
 If you wait a second and use a player again (e.g. after a timer) you have to check the player object with IsValid.  
 
 An example: If you want to respawn a player 2 seconds after he died then you have to use `IsValid` in the `timer`, because what if the player left in those 2 seconds? You would try to spawn an invalid player and get a lua error.
+
+
+# If else
+
+To check for a condition before executing code you use `if` like this:
+
+```lua
+if name == "Chris" then
+    print("Hi, Chris!")
+end
+```
+
+The format for using if statements is always the same:
+
+```lua
+if --[[ what to check here, aka. condition ]]-- then
+    --[[ do stuff if check is true ]]--
+end
+```
+
+As seen above, it always starts with an `if`. After the condition (what we want to check) we always have a `then`, as in plain english "if that is true then do that". After the "then" comes the code that should be executed. To end this if-block (=codeblock) we use `end`.  
+
+An example to show variable scope (locality):
+
+```lua
+if myvariable then
+    local myvalue = "Chris"
+end
+
+print(myvalue)
+--^ This will print nothing as myvalue is nil
+```
+
+In the above example we can see that the if codeblocks, just as functions do, declare their own local variables, which is why we indent them with spaces (because they are codeblocks).
+
+If you want to do other things if the condition is not true then we use `else` like this:
+
+```lua
+local name = "Chris"
+
+if name == "Chris" then
+    print("Welcome, Chris!")
+else
+    print("You are not Chris!")
+end
+```
+
+**!** Please notice that we do not use a second if, then or end. We only use "else".  
+In the above example we can see the that simply adding an `else` before the `end` allows us to have another codeblock for when the initial condition was false.
+
+
+To compare variables you use 2 equal signs `==`. In contrast, to set a variable you only use one `=`.  
+To check if things simply exist (=are set, aka. are not nil) you can leave out the equal signs.  
+Examples:
+
+```lua
+--Set a variable
+name_one = "Chris"
+
+--This will be true
+if name_one then
+    print("name_one is not nil!")
+end
+
+--This will be false and not run
+if name_two then
+    print("name_two is not nil!")
+end
+
+--This will be true and run, because we use "not" to invert the result
+if not name_two then
+    print("name_two is nil!")
+end
+
+--This will be false and not run, because name_one is not nil and we use "not" to invert the result from true to false
+if not name_one then
+    print("name_one is nil!")
+end
+```
+
+To check if an object (=player, entity, etc.) is not nil you have to use the `IsValid` function.  
+This does not work with basic inbuilt types like string, int, table, bool.  
+Example:
+
+```lua
+--This works:
+if not IsValid(ply) then return end
+
+--This doesnt work, because the "ply" variable is not nil and instead a object-nil
+if not ply then return end
+```
+
+In the above example we see that we need to use IsValid with objects because a simple `if` only checks for "not nil".
+
 
 
 # Loops

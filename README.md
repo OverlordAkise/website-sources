@@ -9,7 +9,6 @@ Everything else, if not explicitly specified, is licensed as "GNU GPLv3".
 Current websites:  
  - [https://shira.at](https://shira.at)  
  - [https://luctus.at](https://luctus.at)  
- - [https://luctus.at/book](https://luctus.at/book)
  - [https://luctus.at/wiki](https://luctus.at/wiki)
 
 

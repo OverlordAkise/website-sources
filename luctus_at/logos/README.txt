@@ -3,4 +3,4 @@ It exists so that I can quickly include them in the projects.
 
 They were drawn for me by the amazing HollyMoon.
 
-Discord: hollymoon
+Discord: delusion.l

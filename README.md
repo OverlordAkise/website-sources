@@ -17,6 +17,11 @@ Current websites:
 I created an automated process that fetches git pushes and updates the websites accordingly. No more manual file copying from now on.
 
 
+## Compile markdown to html
+
+    pandoc input.md -s --toc -M document-css=false -o output.html
+
+
 ## Generate zip files for luctus.at
 
 To generate the downloadable addons in the files/ folder of luctus.at I use the following bash line:

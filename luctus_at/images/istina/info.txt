@@ -1,81 +1,81 @@
 istina | status
-2024-01-25 13:53:12.788763
+2024-06-07 21:43:48.943819
 
 ---rows and data---
-Server:	994670
-Player:	746424
-Weaponkills:	781932
-Jobtimes:	1748
-Jointime:	27678
-Bans:	1480
-Warns:	7786
-LuctusLogs:	11711600
-Unique servers:	27
-Unique players:	3387
+Server:	1479592
+Player:	838655
+Weaponkills:	966929
+Jobtimes:	1986
+Jointime:	31954
+Bans:	1544
+Warns:	7816.0
+LuctusLogs:	19978300
+Unique servers:	29
+Unique players:	3890
 
 ---addons of players---
-average addon size:	21931.2988
+average addon size:	23073.2052
 maximum addon size:	282411
-average addon count:	259.9908
-maximum addon count:	2459
+average addon count:	278.0505
+maximum addon count:	2465
 
 ---averages---
-avg ping:	50.5422
-avg fps:	107.2586
-avg fps (no tab-out):	108.3844
+avg ping:	51.2214
+avg fps:	106.4548
+avg fps (no tab-out):	107.5143
 max fps recorded:	972
-avg jointime:	237.027
+avg jointime:	240.2036
 
 ---top 10 screensizes---
-1920x1080:	543014
-2560x1440:	66674
-1600x900:	23966
-1366x768:	11824
-1680x1050:	10873
-1280x1024:	9730
-3440x1440:	7817
-3840x2160:	6619
-1920x1200:	6213
-1280x720:	5601
+1920x1080:	602086
+2560x1440:	75672
+1600x900:	26527
+1768x992:	12873
+1366x768:	12719
+1680x1050:	11480
+1280x1024:	10023
+3440x1440:	8677
+1920x1200:	7246
+3840x2160:	7057
 
 ---screenmode count---
-fullscreen:	525217
-window:	212551
+fullscreen:	574902
+window:	253821
 
 ---bit versions---
-LuaJIT 2.1.0-beta3:	444910
-LuaJIT 2.0.4:	292858
+LuaJIT 2.1.0-beta3:	500309
+LuaJIT 2.0.4:	328414
 
 ---top 10 log events---
-Damage:	7218546
-Weapons:	1948698
-Money:	762647
-PlayerSay:	386465
-PlayerSpawn:	274272
-PlayerDeath:	182495
-ulx:	152385
-Spawned:	139221
-Toolgun:	128829
-AreaManager:	112119
+Damage:	14774483
+Weapons:	2216883
+Money:	877866
+PlayerSay:	429472
+PlayerSpawn:	300884
+Spawned:	206353
+Toolgun:	201870
+PlayerDeath:	194279
+ulx:	186098
+Vehicles:	115795
 
 ---top 10 ulx commands---
-ulx noclip:	38393
-ulx asay:	17654
-ulx goto:	9089
-ulx respawn:	7781
-ulx bring:	7109
-ulx psay:	3550
-ulx return:	3213
-ulx groupallow:	3180
-ulx hp:	2551
-ulx cloak:	2494
-ulx uncloak:	2249
-ulx invis:	2087
-ulx forcerespawn:	2021
-ulx setjob:	1978
-ulx vis:	1948
-ulx god:	1911
-ulx ungod:	1715
+ulx noclip:	57315
+ulx asay:	18500
+ulx goto:	10796
+ulx bring:	8191
+ulx respawn:	7996
+ulx psay:	3805
+ulx groupallow:	3611
+ulx return:	3517
+ulx cloak:	3258
+ulx hp:	3051
+ulx uncloak:	2916
+ulx forcerespawn:	2882
+ulx setjob:	2708
+ulx god:	2691
+ulx model:	2342
+ulx invis:	2120
+ulx ungod:	1981
+ulx vis:	1971
 ulx setrank:	1714
-ulx model:	1611
-ulx administrate:	1439
+ulx slay:	1610

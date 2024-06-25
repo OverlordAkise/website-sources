@@ -43,6 +43,21 @@ Afterwards you will have a running gmod server, with amazing logs and easy to us
 For commands to restart, etc. visit the operator guide on this wiki at [/wiki/server/operatorguide](/wiki/server/operatorguide)
 
 
+## Automatic restarts
+
+The server runs, by default, with no auto-restart functionality.  
+This can be added with the following cronjobs, use the command `crontab -e` to edit the cronjobs for the gmodserver-user.
+
+```
+# Automatically restart if crashed
+*/5 * * * * ~/gmodserver monitor
+# Automatically restart everyday at 5am
+0 5 * * * ~/gmodserver restart
+```
+
+The monitor command verifies if the server is still running or if it crashed. If it crashed then it will restart the server and it checks this every 5 minutes.  
+The restart command simply restarts the server everyday at 5:00 am. This restart has no announcement, the server simply shutsdown and starts again.
+
 
 ## DarkRP Setup
 

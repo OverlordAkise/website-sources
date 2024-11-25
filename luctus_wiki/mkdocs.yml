@@ -3,10 +3,19 @@ site_url: https://luctus.at/wiki
 repo_url: https://github.com/OverlordAkise
 
 theme:
-    name: windmill
-    logo: img/urlicon.png
-    favicon: img/urlicon.png
+    # name: windmill
+    name: material
+    logo: img/favicon.ico
+    favicon: img/favicon.ico
     highlightjs: true
     collapse_navigation: true
     hljs_languages:
         - lua
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

@@ -1,12 +1,11 @@
-# Programming in gLUA
+# Minimalism
 
-Garry's Mod is neither a complex nor complicated game.  
-Your LUA code should reflect that and be written as simple and straightforward as possible.
+**Disclaimer: This page is an opinion of mine!**
 
-In this very subjective page I want to go over common programming patterns and show why they need not be used.
+LUA is neither a complex nor complicated programming language.  
+There is no reason to overengineer or overcomplicate things, most of the time the simple solutions are the easiest to maintain and understand.
 
-
-## "Bad" Patterns
+In this very opinionated page I want to go over common programming patterns and show why they need not be used.
 
 
 ## Dynamic "auto-include"
@@ -17,7 +16,7 @@ TL;DR: If your addon doesn't have many files (e.g. more than 4) then simply put 
 
 Most addons nowadays have a custom auto-include function that loops through the addons files and load them dynamically (and also AddCSLuaFile's them for the client).
 
-This is not needed for most addons. It is unneccessary overhead and cpu usage if you don't have many files.
+This is not needed for most addons as this method makes your addon load slower than the autorun folder.
 
 An example of this bad pattern:
 

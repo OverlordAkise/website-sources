@@ -1,6 +1,6 @@
 # Dynamic HUDs
 
-**Disclaimer: This page is subjective!**
+**Disclaimer: This page is an opinion of mine!**
 
 TL;DR: Only do dynamic HUDs if you are already experienced with LUA and want to support all aspect ratios! If you do not want to explicitly support 21:9 or 4k in your HUD then use static variables for your elements!
 

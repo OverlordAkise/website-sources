@@ -14,7 +14,7 @@ This method requires a bit more CPU but it allows you to nearly "ignore" the lim
 
 Normally you would do the following:
 
-```
+```lua
 if SERVER then
     util.AddNetworkString("tabletest")
     net.Receive("tabletest",function(len,ply)

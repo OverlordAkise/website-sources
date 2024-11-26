@@ -59,3 +59,33 @@ end)
 ```
 
 To get the MapCreationID of an entity simply use `ent:MapCreationID()`. This function is serverside only.
+
+
+## Entity limits
+
+The game has an entity limit of 8176. This limit applies to networked entities (aka. not clientside entities).
+
+If you create an entity (e.g. with the `ents.Create` function) and you reached this limit it will fail to create the entity and return NULL.
+
+This limit is lower if you use DarkRP's FPP.  
+Falco's Prop Protection sends information about an entity when it is created. It sends this information to all players. This information gets bigger the more entities exist.  
+After around 7000 entities the message is too big to send at once, which means FPP creates "net-message overflow" errors and fails to send these messages.  
+This means you should try to keep the current entity count on a map lower than ~7000 for the best experience (also because of performance reasons).
+
+On the other hand, you can remove nearly all entities from the map and it will still run. According to my tests you can remove all entities except 3:
+
+ - The map itself, entity 0, also called "worldspawn"
+ - You yourself, the player
+ - The player manager
+
+The output from `PrintTable(ents.GetAll())` in this state returns the following:
+
+```lua
+-- [1]	=	Entity [0][worldspawn]
+-- [2]	=	Entity [4][player_manager]
+-- [3]	=	Player [1][OverlordAkise]
+```
+
+This means that all doors, all lights, all custom events from the map and all weapons have been removed.
+
+In summary, according to my tests: The upper limit is 8176 and the lower limit is 2 + playercount.
